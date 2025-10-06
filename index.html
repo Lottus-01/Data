@@ -18,8 +18,19 @@
 
         form.addEventListener('submit', function(e){
             e.preventDefault();
-            const dateImpult = documen
-        })
+            const dateImpult = documen.getElementById('birthdate').value;
+            if(!dateImpult) {
+                result.textContent = "Por favor, selecione uma data";
+                return;
+            }
+
+            const data = new Date(dateImpult);
+            const options = { year: 'numeric', month: 'long', day: 'numeric'};
+            const formattedDate = date.toLocalDateString('pt-BR', options);
+            result.innerHTML = `
+            <p>Data selecionada: <strong>${formattedDate}</stron></p>
+            <p>Dia da semana: <strong>${date.toLocalDateString('pt-BR', {weekdat: 'long'})}</strong></p>`;
+        });
 
     </script>
 </body>
