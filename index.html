@@ -9,30 +9,73 @@
     <h2>Formulario com campo de Data</h2>
     <form id="dateForm">
         <label for="birthdate">Data de nascimento</label>
-        <input type="date" >
+        <input type="date" id="birthdate" name="birthdate">
+        <button type="submit">Enviar</button>
     </form>
+
+    <div id="result"></div>
 
     <script>
         const form = document.getElementById('dateForm');
         const result = document.getElementById('result');
 
-        form.addEventListener('submit', function(e){
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const dateImpult = documen.getElementById('birthdate').value;
+            const dateImpult = document.getElementById('birthdate').value;
             if(!dateImpult) {
                 result.textContent = "Por favor, selecione uma data";
                 return;
             }
 
             const data = new Date(dateImpult);
+            data.setDate(data.getDate() + 1);
             const options = { year: 'numeric', month: 'long', day: 'numeric'};
-            const formattedDate = date.toLocalDateString('pt-BR', options);
+            const formattedDate = data.toLocaleDateString('pt-BR', options);
+
             result.innerHTML = `
             <p>Data selecionada: <strong>${formattedDate}</stron></p>
-            <p>Dia da semana: <strong>${date.toLocalDateString('pt-BR', {weekdat: 'long'})}</strong></p>`;
+            <p>Dia da semana: <strong>${data.toLocaleDateString('pt-BR', {weekday: 'long'})}</strong></p>
+            <p>Hora selecionada: <strong>${sate}</stron></p>
+            `;
         });
 
     </script>
+
+
+    <h2>Formulario com campo de Data</h2>
+    <form id="dateForm">
+        <label for="birthdate">Data de nascimento</label>
+        <input type="date" id="birthdate" name="birthdate">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('dateForm');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const dateImpult = document.getElementById('birthdate').value;
+            if(!dateImpult) {
+                result.textContent = "Por favor, selecione uma data";
+                return;
+            }
+
+            const data = new Date(dateImpult);
+            data.setDate(data.getDate() + 1);
+            const options = { year: 'numeric', month: 'long', day: 'numeric'};
+            const formattedDate = data.toLocaleDateString('pt-BR', options);
+
+            result.innerHTML = `
+            <p>Data selecionada: <strong>${formattedDate}</stron></p>
+            <p>Dia da semana: <strong>${data.toLocaleDateString('pt-BR', {weekday: 'long'})}</strong></p>
+            <p>Hora selecionada: <strong>${sate}</stron></p>
+            `;
+        });
+
+
 </body>
 </html>
 
