@@ -41,41 +41,6 @@
 
     </script>
 
-
-    <h2>Formulario com campo de Data</h2>
-    <form id="dateForm">
-        <label for="birthdate">Data de nascimento</label>
-        <input type="date" id="birthdate" name="birthdate">
-        <button type="submit">Enviar</button>
-    </form>
-
-    <div id="result"></div>
-
-    <script>
-        const form = document.getElementById('dateForm');
-        const result = document.getElementById('result');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const dateImpult = document.getElementById('birthdate').value;
-            if(!dateImpult) {
-                result.textContent = "Por favor, selecione uma data";
-                return;
-            }
-
-            const data = new Date(dateImpult);
-            data.setDate(data.getDate() + 1);
-            const options = { year: 'numeric', month: 'long', day: 'numeric'};
-            const formattedDate = data.toLocaleDateString('pt-BR', options);
-
-            result.innerHTML = `
-            <p>Data selecionada: <strong>${formattedDate}</stron></p>
-            <p>Dia da semana: <strong>${data.toLocaleDateString('pt-BR', {weekday: 'long'})}</strong></p>
-            <p>Hora selecionada: <strong>${sate}</stron></p>
-            `;
-        });
-
-
 </body>
 </html>
 

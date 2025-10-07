@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2>Exercicio 2: Verificar se é Fim de semana</h2>
+
+<label for="data">Selecione uma data</label>
+<input type="date" id="data">
+<button onclick="verificarFimDeSemana()">Verificar</button>
+
+<p id="fimDeSemanaResultado"></p>
+
+<script>
+
+function calcularIdade(){
+            const idadeStr = document.getElementById("data").value;
+            if (!idadeStr) {
+                document.getElementById("fimDeSemanaResultado").textContent = "Selecione uma data";
+                return;
+            }
+        }
+</script>
+
+</body>
+</html>
